@@ -42,6 +42,30 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let allHotels = [];
   let cacheReady = false;
+  
+  /* ---------- Collapsible info panel (Title panel) ---------- */
+const panel = document.getElementById("title-panel");
+const toggleBtn = document.getElementById("toggle-info");
+const panelBody = document.getElementById("panel-body");
+
+if (panel && toggleBtn && panelBody) {
+  // 初始折叠（可选：如果你HTML里没写 hidden）
+  panelBody.hidden = true;
+  toggleBtn.setAttribute("aria-expanded", "false");
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // 防止你外面的 document click 逻辑把面板“顺手关掉”
+    const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
+    toggleBtn.setAttribute("aria-expanded", String(!isOpen));
+    panelBody.hidden = isOpen;
+    panel.classList.toggle("is-open", !isOpen);
+  });
+
+  // 可选：点面板内部不要触发 document click
+  panel.addEventListener("click", (e) => e.stopPropagation());
+}
+
+  
  /* ---------- LEGEND (fixed on map, icons from Mapbox sprite, no parsing icon-image)  ---------- */
   const LEGEND_ID = "map-legend-fixed";
   let spriteMeta = null;
