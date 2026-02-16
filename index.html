@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Edinburgh_accommodation_wzr</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  //<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Edinburgh Hotel Map</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <!-- Mapbox GL -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js"></script>
+
+  <!-- Geocoder -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+
+  <!-- Turf -->
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- Top-left info box -->
+  <div class="map-overlay" id="features">
+    <h2>Edinburgh Accommodation Map</h2>
+    <div class="source">Accommodation data from OpenStreetMap via Overpass API (Feb 2026, ODbL).<br>Basemap © Mapbox © OpenStreetMap contributors.<br>Legend icons (hotel, hostel, guest house, apartment) © Freepik / Dave Gandy via Flaticon.</div>
+  </div>
+  
+<!-- Bottom-left controls -->
+  <button class="download-btn download-btn" type="button">Download filtered data</button>
+  <div class="filters">
+    <div class="filter-wrap">
+      <button class="filter-btn type-btn" type="button">Filter by accommodation type ▾</button>
+      <div class="filter-panel type-panel is-hidden">
+        <div class="filter-title">Accommodation type selection</div>
+        
+        <label class="filter-item">
+          <input type="radio" name="hotelType" value="all" checked />
+          <span>All</span>
+        </label>
+        <label class="filter-item">
+          <input type="radio" name="hotelType" value="hotel" />
+          <span>Hotel</span>
+        </label>
+        <label class="filter-item">
+          <input type="radio" name="hotelType" value="hostel" />
+          <span>Hostel</span>
+        </label>
+        <label class="filter-item">
+          <input type="radio" name="hotelType" value="guest_house" />
+          <span>Guest_house</span>
+        </label>
+        <label class="filter-item">
+          <input type="radio" name="hotelType" value="apartment" />
+          <span>Apartment</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-wrap">
+      <button class="filter-btn dest-btn" type="button">Filter by destination area ▾</button>
+      <div class="filter-panel dest-panel is-hidden">
+        <div class="filter-title">Destination-based spatial filter<br>（Hotels within a 500 m radius）</div>
+        <select class="dest-select">
+         <option value="none" selected>All destinations</option>
+                <option value="-3.1889,55.9533">Waverley Station</option>
+                <option value="-3.2186,55.94551">Haymarket Station</option>
+                <option value="-3.18851,55.95536">St James Quarter</option>
+                <option value="-3.1999,55.94864">Edinburgh Castle</option>
+                <option value="-3.18801,55.95015">Royal Mile</option>
+                <option value="-3.19322,55.94877">Victoria Street</option>
+                <option value="-3.18278,55.95541">Calton Hill</option>
+                <option value="-3.19056,55.94716">National Museum of Scotland</option>
+                <option value="-3.19562,55.9509">Scottish National Gallery</option>
+                <option value="-3.18919,55.94467">University of Edinburgh</option>
+                <option value="-3.19322,55.95253">Scott Monument</option>
+                <option value="-3.17247,55.95279">Holyrood Palace</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-count">Number of accommodations displayed : …</div>
+
+  <!-- Fixed legend (bottom-right) -->
+  <div class="map-legend" id="legend">
+    <div class="legend-title">Legend</div>
+    <div class="legend-body" id="legend-body">
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
